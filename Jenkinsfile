@@ -1,10 +1,10 @@
 pipeline {
-    agent any
+    agent { label 'default' }
     parameters {
         string(name: 'MY_PARAM', defaultValue: 'world', description: 'A parameter for the pipeline')
     }
     triggers {
-        cron('H 0 * * *') // Периодический запуск по расписанию (ежедневно в полночь)
+        cron('H 0 * * *') 
     }
     environment {
         MY_CREDENTIALS = credentials('my-credentials-id')
@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Cleanup') {
             steps {
-                cleanWs() // Очистка рабочего каталога
+                cleanWs() 
             }
         }
         stage('Write File') {
@@ -31,7 +31,7 @@ pipeline {
     }
     post {
         always {
-            cleanWs() // Очистка рабочего каталога в конце
+            cleanWs() 
         }
     }
 }
