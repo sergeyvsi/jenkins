@@ -8,12 +8,6 @@ pipeline {
     }
     environment {
         MY_CREDENTIALS = credentials('my-credentials-id')
-    }
-    stages {
-        stage('Cleanup') {
-            steps {
-                cleanWs() 
-            }
         }
         stage('Write File') {
             steps {
