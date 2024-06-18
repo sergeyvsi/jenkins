@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     def content = "Hello+${params.MY_PARAM}"
-                    writeFile(file: 'output.txt', text: content)
+                    writeFile(file: 'result.txt', text: content)
                 }
             }
         }
